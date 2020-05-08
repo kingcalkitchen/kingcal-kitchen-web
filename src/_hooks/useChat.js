@@ -7,9 +7,9 @@ export const useChat = () => {
 
     useEffect(() => {
         let _hubConnection = new HubConnectionBuilder()
-            .withUrl("http://localhost:5000/chatHub")
+            .withUrl("http://ec2-3-21-171-213.us-east-2.compute.amazonaws.com/chatHub")
             .build()
-            _hubConnection.start().then(() => console.log('Connection started!'))
+            _hubConnection.start().then(() => console.log('Connection started!')).catch(err => console.log(err))
 
         setNickName(window.prompt('Your name: '))
         setHubConnection(_hubConnection)
